@@ -1,12 +1,13 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+var passwordFormLength = document.querySelector("#passwordLength");
 var lowecaseSwitch = document.querySelector("#lowercaseSwitch");
 var uppercaseSwitch = document.querySelector("#uppercaseSwitch");
 var numericSwitch = document.querySelector("#numericSwitch");
 var specialCharSwitch = document.querySelector("#specialCharSwitch");
 
 var passwordOptions = {
-  passwordLength: document.querySelector("#passwordLength").value,
+  passwordLength: 8,
   includeLowerCase: false,
   includeUpperCase: false,
   includeNumbers: false,
@@ -30,57 +31,56 @@ function updatePasswordOptions() {
   } else if (event.target.id === "specialCharSwitch") {
     passwordOptions.includeSpecialChars = !passwordOptions.includeSpecialChars;
   }
-  console.log(passwordOptions)
-}
-
-function updateUppercaseOption() {
-  if (passwordOptions.includeUpperCase === false) {
-    passwordOptions.includeUpperCase = true;
-  }
-  else {
-    passwordOptions.includeUpperCase = true;
-  }
-}
-
-function updateNumericOption() {
-  if (passwordOptions.includeNumbers === false) {
-    passwordOptions.includeNumbers = true;
-  }
-  else {
-    passwordOptions.includeNumbers = true;
-  }
-}
-
-function updateSpecialCharOption() {
-  if (passwordOptions.includeSpecialChars === false) {
-    passwordOptions.includeSpecialChars = true;
-  }
-  else {
-    passwordOptions.includeSpecialChars = true;
-  }
-}
-
-function getPasswordOptions() {
-  event.preventDefault();
+  passwordOptions.passwordLength = parseInt(passwordFormLength.value);
   console.log(passwordOptions);
-  //validate form entries
+
+}
 
 
 
-  //prompt for options "lowercase, uppercase, numeric, and/or special characters"
+function validatePasswordOptions() {
+  if (passwordOptions.passwordLength < 8 || passwordOptions.passwordLength > 128) {
+    alert("The Password Lenth must be between 8 and 128");
+  }
+
+  if (passwordOptions.includeLowerCase === false && passwordOptions.includeUpperCase === false && passwordOptions.includeNumbers === false && passwordOptions.includeSpecialChars === false) {
+    alert("Please choose at lease one of lowercase, uppercase, numeric, and/or special characters");
+  }
 }
 // Generate password
 function generatePassword() {
-  return "password";
+  var allChars = "";
+  var newPassword = "";
+
+  if (passwordOptions.includeLowerCase) {
+    allChars += lowercaseChars;
+  }
+  if (passwordOptions.includeUpperCase) {
+    allChars += uppercaseChars;
+  }
+  if (passwordOptions.includeNumbers) {
+    allChars += numbers;
+  }
+  if (passwordOptions.includeSpecialChars) {
+    allChars += specialChars;
+  }
+  console.log(allChars);
+
+  allCharsArray = allChars.split("");
+  for (i = 0; i < passwordOptions.passwordLength; i++) {
+    var allCharsIndex = Math.floor(Math.random() * allChars.length);
+    newPassword += allCharsArray[allCharsIndex];
+    console.log(newPassword);
+  }
+
+  return newPassword;
 }
 // Write password to the #password input
 function writePassword() {
-
+  validatePasswordOptions();
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
-  getPasswordOptions();
-  passwordText.value = password;
+  passwordText.textContent = password;
 
 }
 
@@ -90,5 +90,5 @@ lowecaseSwitch.addEventListener("click", updatePasswordOptions);
 uppercaseSwitch.addEventListener("click", updatePasswordOptions);
 numericSwitch.addEventListener("click", updatePasswordOptions);
 specialCharSwitch.addEventListener("click", updatePasswordOptions);
-generateBtn.addEventListener("click", getPasswordOptions);
+generateBtn.addEventListener("click", writePassword);
 
