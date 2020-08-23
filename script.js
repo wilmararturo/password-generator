@@ -19,13 +19,18 @@ var uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var specialChars = "!\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
 var numbers = "0123456789";
 
-function updateLowercaseOption() {
-  if (passwordOptions.includeLowerCase === false) {
-    passwordOptions.includeLowerCase = true;
+function updatePasswordOptions() {
+  console.log(event.target.id);
+  if (event.target.id === "lowercaseSwitch") {
+    passwordOptions.includeLowerCase = !passwordOptions.includeLowerCase;
+  } else if (event.target.id === "uppercaseSwitch") {
+    passwordOptions.includeUpperCase = !passwordOptions.includeUpperCase;
+  } else if (event.target.id === "numericSwitch") {
+    passwordOptions.includeNumbers = !passwordOptions.includeNumbers;
+  } else if (event.target.id === "specialCharSwitch") {
+    passwordOptions.includeSpecialChars = !passwordOptions.includeSpecialChars;
   }
-  else {
-    passwordOptions.includeLowerCase = true;
-  }
+  console.log(passwordOptions)
 }
 
 function updateUppercaseOption() {
@@ -46,12 +51,12 @@ function updateNumericOption() {
   }
 }
 
-function updateLowercaseOption() {
-  if (passwordOptions.includeLowerCase === false) {
-    passwordOptions.includeLowerCase = true;
+function updateSpecialCharOption() {
+  if (passwordOptions.includeSpecialChars === false) {
+    passwordOptions.includeSpecialChars = true;
   }
   else {
-    passwordOptions.includeLowerCase = true;
+    passwordOptions.includeSpecialChars = true;
   }
 }
 
@@ -81,9 +86,9 @@ function writePassword() {
 
 
 // Add event listener to generate button
-lowecaseSwitch.addEventListener("click", updateLowercaseOption);
-uppercaseSwitch.addEventListener("click", updateUppercaseOption);
-numericSwitch.addEventListener("click", updateNumericOption);
-specialCharSwitch.addEventListener("click", updateSpecialCharOption);
+lowecaseSwitch.addEventListener("click", updatePasswordOptions);
+uppercaseSwitch.addEventListener("click", updatePasswordOptions);
+numericSwitch.addEventListener("click", updatePasswordOptions);
+specialCharSwitch.addEventListener("click", updatePasswordOptions);
 generateBtn.addEventListener("click", getPasswordOptions);
 
