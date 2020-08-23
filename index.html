@@ -27,7 +27,9 @@
           <div class="row">
             <div class="col-lg-6 mb-3">
               <label for="passwordLength">Password Length</label>
-              <input type="number" class="form-control" id="passwordLength" min="8" max="128" required>
+              <input type="number" class="form-control" step="1" placeholder="8 - 128" name="passwordLength"
+                id="passwordLength" min="8" max="128" required>
+              <span class="validity"></span>
             </div>
             <div class="col-lg-6 mb-3">
               <h5>Select at least one of the following</h5>
@@ -44,8 +46,8 @@
                 <label class="custom-control-label" for="numericSwitch">nummeric</label>
               </div>
               <div class="custom-control custom-switch">
-                <input type="checkbox custom-control-input" id="specialCharSwitch">
-                <label for="specialCharSwitch">Special Characters</label>
+                <input type="checkbox" class="custom-control-input" id="specialCharSwitch">
+                <label class="custom-control-label" for="specialCharSwitch">Special Characters</label>
               </div>
             </div>
           </div>
