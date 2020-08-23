@@ -24,7 +24,7 @@ var numbers = "0123456789";
 
 // update the password options object based on selections
 function updatePasswordOptions() {
-  console.log(event.target.id);
+
   if (event.target.id === "lowercaseSwitch") {
     passwordOptions.includeLowerCase = !passwordOptions.includeLowerCase;
   } else if (event.target.id === "uppercaseSwitch") {
@@ -35,7 +35,7 @@ function updatePasswordOptions() {
     passwordOptions.includeSpecialChars = !passwordOptions.includeSpecialChars;
   }
   passwordOptions.passwordLength = parseInt(passwordFormLength.value);
-  console.log(passwordOptions);
+
 
 }
 
@@ -76,8 +76,8 @@ function generatePassword() {
   if (passwordOptions.includeSpecialChars) {
     allChars += specialChars;
   }
-  console.log(allChars);
-  console.log(allChars.length);
+
+
 
   // make the character list an array to pull elements at random
   var allCharsArray = allChars.split("");
@@ -86,7 +86,7 @@ function generatePassword() {
     // random number stuff
     var allCharsIndex = Math.floor(Math.random() * allChars.length);
     newPassword += allCharsArray[allCharsIndex];
-    console.log(newPassword);
+
   }
 
   return newPassword;
@@ -94,7 +94,7 @@ function generatePassword() {
 // Write password to the #password input
 function writePassword() {
   var optionsPassed = validatePasswordOptions();
-  console.log(optionsPassed);
+
   //only generate a password if the options are valid
   if (validatePasswordOptions()) {
 
