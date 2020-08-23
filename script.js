@@ -93,8 +93,7 @@ function generatePassword() {
 }
 // Write password to the #password input
 function writePassword() {
-  var optionsPassed = validatePasswordOptions();
-
+  updatePasswordOptions();
   //only generate a password if the options are valid
   if (validatePasswordOptions()) {
 
