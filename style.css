@@ -139,6 +139,16 @@ button[disabled] {
   overflow: hidden;
 }
 
+input:invalid+span:after {
+  content: 'Please Enter a number';
+  padding-left: 5px;
+}
+
+input:valid+span:after {
+  content: '✓';
+  padding-left: 5px;
+}
+
 @media (max-width: 690px) {
   .btn {
     font-size: 1rem;
