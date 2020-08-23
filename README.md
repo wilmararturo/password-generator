@@ -1,19 +1,27 @@
-# 03 JavaScript: Password Generator
+# JavaScript: Password Generator
 
-Create an application that generates a random password based on user-selected criteria. This app will run in the browser and feature dynamically updated HTML and CSS powered by your JavaScript code. It will also feature a clean and polished user interface and be responsive, ensuring that it adapts to multiple screen sizes.
+This application generates a random password based on user-selected criteria.
 
-If you are unfamiliar with special characters, take a look at [some examples](https://www.owasp.org/index.php/Password_special_characters).
 
-## User Story
+---
 
-```
-AS AN employee with access to sensitive data
-I WANT to randomly generate a password that meets certain criteria
-SO THAT I can create a strong password that provides greater security
-```
+## Use Case
+
+If an employee with access to sensitive data wants to randomly generate a password that meet length and complexity criteria, this application may be used.
+
+---
+
+## Instructions
+
+1. Go to [password-generator](https://wilmararturo.github.io/password-generator/)
+2. Enter a number for the password length.
+3. Select at least one of owercase, uppercase, numeric, and/or special characters.
+4. Clink "Generate Password"
+
+---
 
 ## Acceptance Criteria
-
+ 
 ```
 GIVEN I need a new, secure password
 WHEN I click the button to generate a password
@@ -32,17 +40,4 @@ WHEN the password is generated
 THEN the password is either displayed in an alert or written to the page
 ```
 
-The following image demonstrates the application functionality:
-
-![password generator demo](./Assets/03-javascript-homework-demo.png)
-
-## Review
-
-You are required to submit the following for review:
-
-* The URL of the deployed application.
-
-* The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
-
 - - -
-© 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
